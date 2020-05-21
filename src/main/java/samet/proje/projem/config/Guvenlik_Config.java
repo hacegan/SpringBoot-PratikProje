@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class Guvenlik_Config extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	DataSource dataSource;

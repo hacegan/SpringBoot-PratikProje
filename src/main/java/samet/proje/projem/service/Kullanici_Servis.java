@@ -6,22 +6,22 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import samet.proje.projem.model.Kullanicilar;
-import samet.proje.projem.repository.KullanicilarRepo;
+import samet.proje.projem.model.Kullanici;
+import samet.proje.projem.repository.Kullanici_Repo;
 import samet.proje.projem.staticstuff.Principal;
 
 @Service
-public class KullanicilarServis implements KullanicilarServisImpl {
+public class Kullanici_Servis implements Kullanici_Servis_Impl {
 
 	@Autowired
-	KullanicilarRepo kullanicilarRepo;
+	Kullanici_Repo kullanicilarRepo;
 
 	public int deleteUser(long gelenid) {
 		kullanicilarRepo.deleteById(gelenid);
 		return 1;
 	}
 
-	public Kullanicilar createUser(Kullanicilar kullanici) {
+	public Kullanici createUser(Kullanici kullanici) {
 		kullanici.setEnabled(1);
 
 		Date date = new Date();
@@ -36,7 +36,7 @@ public class KullanicilarServis implements KullanicilarServisImpl {
 		return kullanicilarRepo.save(kullanici);
 	}
 
-	public Optional<Kullanicilar> loginUser(Kullanicilar kullanici) {
+	public Optional<Kullanici> loginUser(Kullanici kullanici) {
 		return kullanicilarRepo.findByUsername(kullanici.getUsername());
 	}
 

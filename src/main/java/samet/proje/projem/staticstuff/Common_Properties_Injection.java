@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @MappedSuperclass
 @Data
 @NoArgsConstructor
-public class CommonPropertiesInjection {
+public class Common_Properties_Injection {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

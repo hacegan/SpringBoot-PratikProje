@@ -1,28 +1,31 @@
 package samet.proje.projem.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
-import org.springframework.lang.Nullable;
+import samet.proje.projem.staticstuff.Common_Properties_Injection;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import samet.proje.projem.staticstuff.CommonPropertiesInjection;
+@Entity
+@Table(name = "GOREVLER")
+public class Gorev extends Common_Properties_Injection {
 
-@Entity(name = "ORGANIZATIONAL_STRUCTURE")
-@Data
-@NoArgsConstructor
-public class Gorev extends CommonPropertiesInjection {
+	@NotNull
+	@Column(name = "task_name")
+	private String taskName;
 
-	@Column(name = "PARENT_NODE")
-	@Nullable
-	private Integer parentNode;
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "task_start_time")
+	private Date taskStartTime;
 
-	@Column(name = "CHILD_NODES")
-	@Nullable
-	private String child_nodes;
-
-	@Column(name = "IMG_LOC")
-	private String img_loc;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "task_end_time")
+	private Date taskEndTime;
 
 }

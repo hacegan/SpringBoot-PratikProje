@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CalisanlarDTO {
+public class Sirket_Yapisi_DTO {
 
 	private String label;
 
@@ -22,7 +22,7 @@ public class CalisanlarDTO {
 
 	private Data data;
 
-	private List<CalisanlarDTO> children;
+	private List<Sirket_Yapisi_DTO> children;
 
 	@JsonIgnore
 	private long idalan;
@@ -58,13 +58,13 @@ public class CalisanlarDTO {
 
 	}
 
-	public CalisanlarDTO(String label, List<CalisanlarDTO> children, long idalan) {
+	public Sirket_Yapisi_DTO(String label, List<Sirket_Yapisi_DTO> children, long idalan) {
 		this.label = label;
 		this.children = children;
 		this.idalan = idalan;
 	}
 
-	public CalisanlarDTO(String label, Data data2, ArrayList<CalisanlarDTO> children, long gorevi) {
+	public Sirket_Yapisi_DTO(String label, Data data2, ArrayList<Sirket_Yapisi_DTO> children, long gorevi) {
 		this.label = label;
 		this.data = data2;
 		this.children = children;

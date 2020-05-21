@@ -7,12 +7,12 @@ import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import samet.proje.projem.staticstuff.CommonPropertiesInjection;
+import samet.proje.projem.staticstuff.Common_Properties_Injection;
 
-@Entity(name = "CALISAN_DETAY")
+@Entity(name = "KULLANICI_DETAY")
 @Data
 @NoArgsConstructor
-public class Calisan_Detay extends CommonPropertiesInjection{
+public class Kullanici_Detay extends Common_Properties_Injection{
 	
 	@NotNull
 	private String adi;
@@ -31,12 +31,15 @@ public class Calisan_Detay extends CommonPropertiesInjection{
 	
 	private String telefon_no;
 	
-	private String ev_adres;
+	private String ev_adresi;
 	
 	@NotNull
-	private LocalDate ise_baslama_tarihi;
+	private LocalDate ise_baslama_zamani;
 	
-	private LocalDate isten_ayrilis_tarihi;
+	private LocalDate isten_ayrilis_zamani;
+	
+	@NotNull
+	private String kul_username;
 	
 
 }
