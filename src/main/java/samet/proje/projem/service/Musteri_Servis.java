@@ -1,20 +1,52 @@
 package samet.proje.projem.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import samet.proje.projem.model.Musteri;
 import samet.proje.projem.repository.Musteri_Repo;
+import samet.proje.projem.service.impl.Musteri_Servis_Impl;
 
+@Service
 public class Musteri_Servis implements Musteri_Servis_Impl {
 
 	@Autowired
 	Musteri_Repo musteri_Repo;
 
 	@Override
-	public Optional<Musteri> getCustomers(String username) {
-		return musteri_Repo.findByUsername(username);
+	public List<Musteri> getCustomers(String username, Integer pageNo, Integer pageSize, String sortBy) {
+		Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
+
+		Page<Musteri> pagedResult = musteri_Repo.findByKulusername(username, paging);
+
+		if (pagedResult.hasContent()) {
+			return pagedResult.getContent();
+		} else {
+			return new ArrayList<Musteri>();
+		}
+	}
+
+	@Override
+	public Musteri addCustomer(Musteri musteri) {
+		return musteri_Repo.save(musteri);
+	}
+
+	@Override
+	public Musteri updateCustomer(Musteri musteri) {
+		return musteri_Repo.save(musteri);
+	}
+
+	@Override
+	public void deleteCustomer(Musteri musteri) {
+		musteri_Repo.delete(musteri);
 	}
 
 }

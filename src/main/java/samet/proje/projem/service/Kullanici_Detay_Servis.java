@@ -13,6 +13,8 @@ import samet.proje.projem.model.Kullanici_Detay;
 import samet.proje.projem.model.Sirket_Yapisi;
 import samet.proje.projem.repository.Kullanici_Detay_Repo;
 import samet.proje.projem.repository.Sirket_Yapisi_Repo;
+import samet.proje.projem.service.impl.Kullanici_Detay_Servis_Impl;
+import samet.proje.projem.staticstuff.Principal;
 
 @Service
 public class Kullanici_Detay_Servis implements Kullanici_Detay_Servis_Impl {
@@ -93,7 +95,7 @@ public class Kullanici_Detay_Servis implements Kullanici_Detay_Servis_Impl {
 
 	@Override
 	public Optional<Kullanici_Detay> getProfile() {
-		return kullanici_Detay_Repo.findById((long) 1);
+		return kullanici_Detay_Repo.findByKulusername(Principal.loggedInUser.getUsername());
 	}
 
 	@Override

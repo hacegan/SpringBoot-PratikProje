@@ -1,4 +1,4 @@
-package samet.proje.projem.service;
+package samet.proje.projem.service.impl;
 
 import org.springframework.http.ResponseEntity;
 

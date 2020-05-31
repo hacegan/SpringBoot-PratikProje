@@ -1,11 +1,10 @@
 package samet.proje.projem.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
-import samet.proje.projem.model.Sirket_Yapisi;
-import samet.proje.projem.repository.Sirket_Yapisi_Repo;
+import samet.proje.projem.service.impl.Sirket_Yapisi_ServisImpl;
 
+@Service
 public class Sirket_Yapisi_Servis implements Sirket_Yapisi_ServisImpl {
 
 }

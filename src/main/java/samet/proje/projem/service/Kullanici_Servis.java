@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import samet.proje.projem.model.Kullanici;
 import samet.proje.projem.repository.Kullanici_Repo;
+import samet.proje.projem.service.impl.Kullanici_Servis_Impl;
 import samet.proje.projem.staticstuff.Principal;
 
 @Service
@@ -28,10 +29,8 @@ public class Kullanici_Servis implements Kullanici_Servis_Impl {
 		kullanici.setCreatedDate(date);
 		kullanici.setUpdatedDate(date);
 
-		kullanici.setCreatedBy(
-				Principal.currentUserName.isBlank() ? kullanici.getUsername() : Principal.currentUserName);
-		kullanici.setUpdatedBy(
-				Principal.currentUserName.isBlank() ? kullanici.getUsername() : Principal.currentUserName);
+		kullanici.setCreatedBy(Principal.loggedInUser == null ? kullanici.getUsername() : Principal.loggedInUser.getUsername());
+		kullanici.setUpdatedBy(Principal.loggedInUser == null ? kullanici.getUsername() : Principal.loggedInUser.getUsername());
 
 		return kullanicilarRepo.save(kullanici);
 	}

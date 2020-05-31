@@ -14,6 +14,14 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Bu class tüm entitylerde ortak olduğu için bu classı entity classlarımıza
+ * kalıtımla aktarıcaz tekrar aynı propertileri olusturmadan.
+ * 
+ * @author samet
+ *
+ */
+
 @MappedSuperclass
 @Data
 @NoArgsConstructor
